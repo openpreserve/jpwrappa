@@ -1,0 +1,7 @@
+- I'm not sure if toolspec should describe aware software, the wrapper or both
+- As a result I'm not sure if 'version' should correspond to the Aware SDK or jpwrappa (current value refers to Aware)
+- Wrapper has Python 2.7 dependency, but this will disappear once we have a Debian package
+- 'Cost' property: no idea what I should put here
+- inputs: 'profile' is optional in jpwrappa (default used if omitted), but will be used in 99% of all cases. So described it as required even though it really isn't. 
+- outputs: jpwrappa's '-l' option generates xml-formatted log info which is sent to stdout. Not included in toolspec but possibly useful.
+  

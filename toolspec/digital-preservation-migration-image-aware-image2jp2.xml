@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?meta name="GENERATOR" content="XML::Smart/1.6.9 Perl/5.014002 [linux]" ?>
+<tool xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://scape-project.eu/tool tool-1.0_draft.xsd" xmlns="http://scape-project.eu/tool" xmlns:xlink="http://www.w3.org/1999/xlink" schemaVersion="1.0" name="Aware_via_jpwrappa" version="3.19.2.2" homepage="http://www.aware.com/imaging/jpeg2000sdk.html">
+  <installation>
+    <dependency operatingSystemName="Debian">aware,jpwrappa</dependency>
+    <license type="Other" otherType="Commercial license">Aware SDK is released under a commercial license</license>
+  </installation>
+  <otherProperties>
+    <property name="cost">999</property>
+  </otherProperties>
+  <operations>
+    <operation name="digital-preservation-migration-image-aware-image2jp2">
+      <description>Converts any Aware supported image format to JP2 (using jpwrappa wrapper tool)</description>
+      <command>/usr/bin/jpwrappa ${input} ${output} -p ${profile}</command>
+      <inputs>
+        <input name="input" required="true">
+          <description>Reference to input file</description>
+        </input>
+        <input name="profile" required="true">
+          <description>Reference to JP2 options profile</description>
+        </input>
+        <parameter name="params" required="false">
+          <description>Additional conversion parameters</description>
+        </parameter>
+      </inputs>
+      <outputs>
+        <output name="output" required="true">
+          <description>Reference to output file</description>
+          <extension>jp2</extension>
+        </output>
+      </outputs>
+    </operation>
+  </operations>
+</tool>
+
