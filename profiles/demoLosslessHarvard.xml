@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<options>
+<aware>
+
+<!-- Demo jpwrappa options profile
+
+Lossless encoding, based on Harvard College Library 'recipe' by Bill Comstock. See: 
+
+http://jpeg2000wellcomelibrary.blogspot.com/2010/09/guest-post-jpeg2000-recipes-for-aware.html
+ 
+-->
+
+<set-output-j2k-color-xform>YES</set-output-j2k-color-xform>
+<set-output-j2k-error-resilience>ALL</set-output-j2k-error-resilience>
+<wavelet-transform>R53</wavelet-transform>
+<set-output-j2k-bitrate>0</set-output-j2k-bitrate>
+<set-output-j2k-progression-order>RLCP</set-output-j2k-progression-order>
+<tile-size>1024 1024</tile-size> 
+<output-file-type>JP2</output-file-type> 
+
+</aware>
+</options>

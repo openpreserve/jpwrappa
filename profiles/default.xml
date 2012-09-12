@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<options>
+<aware>
+
+<!--
+jpwrappa default profile: Set output format to JP2 and use Aware defaults for everything else.
+-->
+
+<set-output-type>JP2</set-output-type>
+<!--
+	Sets output format to JP2
+-->
+
+</aware>
+</options>

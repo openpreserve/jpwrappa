@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- jpwrappa configuration file. This file MUST be in the same directory 
+as jpwrappa.py/ jpwrappa.exe! 
+-->
+
+<config>
+
+<!-- Do not wrap these file paths in quotes, even if they contain
+spaces (the Python os.path libs don't seem to like this!)
+
+-->
+
+<!-- location of Aware j2kdriver application -->
+<j2kDriverApp>C:\Program Files\Aware\JPEG2000_SDK\demo\j2kdriver.exe</j2kDriverApp>
+
+<!-- location of ExifTool application -->
+<exifToolApp>C:\tools\exiftool.exe</exifToolApp>
+
+</config>
+
+
