@@ -7,20 +7,16 @@
 ****
 jpwrappa options file 
 
-Description: lossy JP2 encoding settings for KB access files
+Description: demo lossy JP2 encoding settings for access images
 Author: Johan van der Knijff
-Date: 30 March, 2011
-Changes wrt version 21 January 2011: 
-- Changed target compression ratio from 10:1 to 20:1
-- Reduced number of quality layers from 10 to 8
+
 ****
 -->
 
 
-<set-output-j2k-add-comment>KB_ACCESS_LOSSY_30/03/2011 TEXT MAIN</set-output-j2k-add-comment>
+<set-output-j2k-add-comment>demoAccessLossy TEXT MAIN</set-output-j2k-add-comment>
 <!--
 	Inserts reference to this options profile as codestream comment
-	Please update this value for each new version of the profile!
 
 -->
 

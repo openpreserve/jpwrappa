@@ -7,17 +7,15 @@
 ****
 jpwrappa options file 
 
-Description: lossless JP2 encoding settings for KB preservation masters
+Description: demo lossless JP2 encoding settings for preservation masters
 Author: Johan van der Knijff
-Date: 21 January, 2011
 ****
 -->
 
 
-<set-output-j2k-add-comment>KB_MASTER_LOSSLESS_21/01/2011 TEXT MAIN</set-output-j2k-add-comment>
+<set-output-j2k-add-comment>demoMasterLossless TEXT MAIN</set-output-j2k-add-comment>
 <!--
 	Inserts reference to this options profile as codestream comment
-	Please update this value for each new version of the profile!
 
 -->
 
