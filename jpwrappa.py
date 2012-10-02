@@ -32,7 +32,7 @@ import etpatch as ET
 import shared
 scriptPath, scriptName = os.path.split(sys.argv[0])
 
-__version__= "0.1.2"
+__version__= "0.1.3"
 
 def main_is_frozen():
     return (hasattr(sys, "frozen") or # new py2exe
@@ -178,9 +178,9 @@ def launchSubProcess(systemString):
         p = sub.Popen(systemString,stdout=sub.PIPE,stderr=sub.PIPE)
         output, errors = p.communicate()
                 
-        # Convert to ascii string
-        outputAsString=output.decode('ascii')
-        errorsAsString=errors.decode('ascii')
+        # Decode to UTF8
+        outputAsString=output.decode('utf-8')
+        errorsAsString=errors.decode('utf-8')
                 
         exitStatus=p.returncode
   
@@ -272,15 +272,15 @@ def convertOneImageToJP2(imageIn,imageOut,awareOptionsString,exifToolApp,j2kDriv
     
     # Pre-format all output
     timeStr=time.asctime()  
-    imageIn=shared.toLatin(os.path.abspath(imageIn))
-    imageOut=shared.toLatin(os.path.abspath(imageOut))
+    imageIn=shared.toUTF8(os.path.abspath(imageIn))
+    imageOut=shared.toUTF8(os.path.abspath(imageOut))
     jp2Created=str(jp2Created)
     exifExitStatus=str(exifExitStatus)
-    exifStdOut=shared.toLatin(exifStdOut)
-    exifStdErr=shared.toLatin(exifStdErr)
+    exifStdOut=shared.toUTF8(exifStdOut)
+    exifStdErr=shared.toUTF8(exifStdErr)
     awareExitStatus=str(awareExitStatus)
-    awareStdOut=shared.toLatin(awareStdOut)
-    awareStdErr=shared.toLatin(awareStdErr)
+    awareStdOut=shared.toUTF8(awareStdOut)
+    awareStdErr=shared.toUTF8(awareStdErr)
     
     # Add to element  
     conversionInfo.appendChildTagWithText("time", timeStr)       
@@ -376,7 +376,7 @@ def imagesToJP2(imagesIn,fileOut,jp2Profile,suffixOut,flagMetadata,flagLogging):
             
     if flagLogging==True:
         # Write xml-formatted log to stdout
-        sys.stdout.write(log.toxml().decode("ascii"))
+        sys.stdout.write(log.toxml().decode('ascii'))
             
     return(imagesIn, imagesOut)
 

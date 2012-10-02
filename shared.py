@@ -107,6 +107,14 @@ def toLatin(str):
         return (str.decode("iso-8859-15","strict"))
     except AttributeError:
         return(str)
+        
+def toUTF8(str):
+    # Decode attribute doesn't exist for string objects in Py 3, but is needed
+    # to avoid Unicode decode errors writing XML in Py 2.7.
+    try:
+        return (str.decode("utf-8","strict"))
+    except AttributeError:
+        return(str)
 
 def removeFile(file):
     try:
@@ -115,4 +123,3 @@ def removeFile(file):
     except Exception:
         msg= "Could not remove " + file
         errorExit(msg)
-
