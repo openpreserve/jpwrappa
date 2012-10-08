@@ -32,7 +32,7 @@ import etpatch as ET
 import shared
 scriptPath, scriptName = os.path.split(sys.argv[0])
 
-__version__= "0.1.3"
+__version__= "0.1.4"
 
 def main_is_frozen():
     return (hasattr(sys, "frozen") or # new py2exe
@@ -297,7 +297,7 @@ def convertOneImageToJP2(imageIn,imageOut,awareOptionsString,exifToolApp,j2kDriv
     # Return conversion info
     return(conversionInfo)
     
-def imagesToJP2(imagesIn,fileOut,jp2Profile,suffixOut,flagMetadata,flagLogging):
+def imagesToJP2(imagesIn,fileOut,jp2Profile,suffixOut,flagMetadata):
     
     # Convert one or more images to JP2. Arguments:
     #
@@ -308,7 +308,7 @@ def imagesToJP2(imagesIn,fileOut,jp2Profile,suffixOut,flagMetadata,flagLogging):
     #     include the file extension, and by default it is an empty text string)
     # - flagMetaData: True if metadata extraction is needed, False otherwise
     #
-    # Returns all input and output images as lists
+    # Returns all output images as list
 
     # Get configuration settings (yields paths to j2kDriverApp and exifToolApp,
     # log file and default JP2profile)
@@ -317,9 +317,8 @@ def imagesToJP2(imagesIn,fileOut,jp2Profile,suffixOut,flagMetadata,flagLogging):
     if flagMetadata==True:
         shared.checkFileExists(exifToolApp)
     
-    if flagLogging==True:
-        # Create element object that will hold log info
-        log=ET.Element('jpwrappa')
+    # Create element object that will hold log info
+    log=ET.Element('jpwrappa')
         
     # Use default JP2 profile if profile is not specified 
     if jp2Profile=="":
@@ -370,15 +369,10 @@ def imagesToJP2(imagesIn,fileOut,jp2Profile,suffixOut,flagMetadata,flagLogging):
         # Add reference to profile to conversionInfo    
         conversionInfo.appendChildTagWithText("profile", jp2Profile)
         
-        if flagLogging==True:
-            # Add as child to log element
-            log.append(conversionInfo)
-            
-    if flagLogging==True:
-        # Write xml-formatted log to stdout
-        sys.stdout.write(log.toxml().decode('ascii'))
-            
-    return(imagesIn, imagesOut)
+        # Add as child to log element
+        log.append(conversionInfo)
+                        
+    return(imagesOut,log)
 
 def main():
     # Get input from command line
@@ -401,7 +395,12 @@ def main():
         jp2Profile=os.path.normpath(jp2Profile)    
        
     # Perform conversion
-    imagesToJP2(imagesIn,imageOut,jp2Profile,suffixOut,flagMetadata,flagLogging)
+    imagesOut,log=imagesToJP2(imagesIn,imageOut,jp2Profile,suffixOut,flagMetadata)
+    
+    if flagLogging==True:
+        # Write xml-formatted log to stdout
+        sys.stdout.write(log.toxml().decode('ascii'))
+    
     
 if __name__ == "__main__":
     main()
