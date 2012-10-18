@@ -1,0 +1,15 @@
+Source: jpwrappa
+Section: utils
+Priority: extra
+Maintainer: Open Planets Foundation <jpwrappa-dev@openplanetsfoundation.org>
+Build-Depends: debhelper (>= 7), perl
+Standards-Version: 3.8.3
+Homepage: https://github.com/openplanets/jpwrappa
+
+Package: jpwrappa
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Wrapper tool for Aware's JPEG 2000 SDK.
+ Wrapper for Aware's j2kdriver application. Jpwrappa will convert any of 
+ Aware's supported input formats to JP2 (JPEG 2000 Part 1). Encoding options
+ are read from a user-provided formatted XML profile.

@@ -4,7 +4,7 @@ Author: Johan van der Knijff, [KB / National Library of the Netherlands][kb].
 
 
 # What is *jpwrappa*?
-*Jpwrappa* is a small Python tool that wraps around the command line version of [Aware’s JPEG 2000 encoder][aware]. The  *Aware* encoder is extremely feature rich, offering a plethora of encoding options, which are specified as command-line arguments. In practice this results in command lines that end up looking something like this:
+*Jpwrappa* is a small Python tool that provides an easy-to-use interface to the *j2kdriver* application that is part of [Aware’s JPEG 2000 SDK][aware]. *Aware*'s encoder is very feature rich, however since all encoding options are provided as command-line arguments, this may result in excessively lengthy command lines. Here's an example:
 <pre>
 j2kdriver --set-input-image balloon.tif --set-output-type JP2 --set-output-j2k-xform
 I97 5 --set-output-j2k-color-xform YES --set-output-j2k-progression-order RPCL --set-

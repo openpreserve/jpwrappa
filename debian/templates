@@ -1,0 +1,8 @@
+Template: jpwrappa/use_taverna
+Type: boolean
+Description: Do you want to use taverna to run your jpwrappa?
+ We would like to know if you want to use taverna to run jpwrappa.
+Template: jpwrappa/use_hadoop
+Type: boolean
+Description: Do you want to use hadoop to run your jpwrappa?
+ We would like to know if you want to use hadoop to run jpwrappa in a multi-node cluster setting.

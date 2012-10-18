@@ -1,0 +1,63 @@
+=head1 NAME
+
+jpywrappa - wrapper tool for Aware's JPEG 2000 SDK.
+
+=head1 SYNOPSIS
+
+jpwrappa [I<options>] [I<imageIn>] [I<imageOut>]
+
+=head1 DESCRIPTION
+
+Convert image(s) to JP2 using Aware JPEG 2000 SDK
+    (C) National Library of the Netherlands / Open Planets Foundation
+
+=head1 OPTIONS
+
+=over 8
+
+=item B<-h, --help>
+
+Show a help message and exit.
+
+=item B<-v, --version>
+
+Show program's version number and exit.
+
+=item B<-p PROFILE>
+
+JP2 profile.
+
+=item B<-s SUFFIX>
+
+Suffix added to base name of output images.
+
+=item B<-m>
+
+Embed metadata from input image (requires ExifTool).
+
+=item B<-l>
+
+Print XML-formatted log to stdout.
+
+=back
+
+=head1 BUGS
+
+Please report bugs at https://github.com/openplanets/jpwrappa/issues.
+
+=head1 AUTHORS
+
+B<jpwrappa> was written by Johan van der Knijff <johan.vanderknijff@kb.nl>.
+
+This manual page was written by Johan van der Knijff from template by Rui Castro <rcastro@keep.pt>.
+
+=head1 COPYRIGHT
+
+This program is free software; you can redistribute it and/or modify it
+under the terms of the Apache License as published by the
+Apache Software Foundation; either version 2, or (at your option) any
+later version.
+
+On Debian GNU/Linux systems, the complete text of the Apache License can be found in '/usr/share/common-licenses/Apache-2.0'.
+
+=cut
