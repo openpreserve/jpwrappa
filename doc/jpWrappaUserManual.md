@@ -107,8 +107,22 @@ scripts. This involves 2 steps:
 # JP2 profiles
 The JP2 profile contains the encoding settings. The minimal example below shows the basic layout of the file:
 
-![](profileDefault.png)
-<!-- ![](https://raw.github.com/openplanets/jpwrappa/master/doc/profileDefault.png) -->
+    <?xml version="1.0"?>
+    
+    <options>
+    <aware>
+    
+    <!--
+    jpwrappa default profile: Set output format to JP2 and use Aware defaults for everything else.
+    -->
+    
+    <set-output-type>JP2</set-output-type>
+    <!--
+    	Sets output format to JP2
+    -->
+    
+    </aware>
+    </options>
 
 So the file's root element is *options*, which has a child element *aware* which contains the encoding options. The naming of these options is based on the naming used in Chapter 9 (‘Command Line Tools’) of the *Aware* manual, using the following naming convention:
 
@@ -139,7 +153,26 @@ Each log entry contains the following information:
 
 As an example, below is a log entry for an image that could not be converted (in fact this was a zero-byte file):
 
-![](logError.png)
+    <?xml version='1.0' encoding='ascii'?>
+    <jpwrappa>
+    <image>
+    <time>Tue Oct 02 17:45:01 2012</time>
+    <imageIn>E:\testjpwrappa\empty.tif</imageIn>
+    <imageOut>E:\testjpwrappa\empty.jp2</imageOut>
+    <jp2Created>False</jp2Created>
+    <exifExitStatus>0</exifExitStatus>
+    <exifStdOut />
+    <exifStdErr />
+    <awareExitStatus>0</awareExitStatus>
+    <awareStdOut />
+    <awareStdErr>Error: unable to read `empty.tif'
+    
+    Warning: aw_j2k_get_output_image returned error code 203
+    
+    </awareStdErr>
+    <profile>F:\johan\pythonCode\jpwrappa\profiles\default.xml</profile>
+    </image>
+    </jpwrappa>
 
 <!-- ![](https://raw.github.com/openplanets/jpwrappa/master/doc/logError.png) -->
 
