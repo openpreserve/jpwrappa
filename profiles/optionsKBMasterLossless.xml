@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+
+<options>
+<aware>
+
+<!--
+****
+jpwrappa options file 
+
+Description: lossless JP2 encoding settings for KB preservation masters
+Author: Johan van der Knijff
+Date: 21 January, 2011
+****
+-->
+
+
+<set-output-j2k-add-comment>KB_MASTER_LOSSLESS_21/01/2011 TEXT MAIN</set-output-j2k-add-comment>
+<!--
+	Inserts reference to this options profile as codestream comment
+	Please update this value for each new version of the profile!
+
+-->
+
+
+<set-output-type>JP2</set-output-type>
+<!--
+	Sets output format to JP2
+-->
+
+
+<set-output-j2k-xform>R53 5</set-output-j2k-xform>
+<!--
+	Sets compression type and number of decomposition levels
+	- First argument: compression type:
+ 		* R53: reversible 5-3 wavelet filter
+		* I97: irreversible 9-7 filter 
+	- Second argument: number of decomposition levels (dl)
+		Note that this controls the number of resolution levels (rl): rl = dl + 1
+
+-->
+
+
+<set-output-j2k-color-xform>YES</set-output-j2k-color-xform>
+<!--
+	Performs color rotation from RBG to YUV color spaces if input image 
+	is in RGB format.
+-->
+
+
+<set-output-j2k-progression-order>RPCL</set-output-j2k-progression-order>
+<!--
+	Sets progression order
+-->
+
+
+<set-output-j2k-tile-size>1024 1024</set-output-j2k-tile-size>
+<!--
+	Sets tile size
+-->
+
+
+<set-output-j2k-codeblock-size>6 6</set-output-j2k-codeblock-size>
+<!--
+	Sets code block size: not actual block size but its base 2 logarithm!
+	Value of 6 corresponds to code block size 64 (2^6)
+
+-->
+
+
+<set-output-j2k-ratio>0</set-output-j2k-ratio>
+<!--
+	Sets compression ratio. A ratio of 0 indicates that all the quantized
+	data should be included in the image. This creates lossless images 
+	if the R53 wavelet is chosen using set-output-j2k-xform
+-->
+
+
+<set-output-j2k-error-resilience>ALL</set-output-j2k-error-resilience>
+<!--
+	Activates all error resilience features: start and end-of packet markers
+	+ segmentation symbols
+-->
+
+
+</aware>
+</options>
