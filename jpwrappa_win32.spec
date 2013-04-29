@@ -16,6 +16,7 @@ exe = EXE(pyz,
 coll = COLLECT(exe,
                a.binaries +
                [('./license/LICENSE.txt','LICENSE','DATA')],
+               [('./config.xml','./config.xml','DATA')],
                [('./doc/jpWrappaUserManual.html','./doc/jpWrappaUserManual.html','DATA')],
                [('./profiles/default.xml','./profiles/default.xml','DATA')],
                [('./profiles/demoLosslessHarvard.xml','./profiles/demoLosslessHarvard.xml','DATA')],

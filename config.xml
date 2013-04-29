@@ -11,9 +11,16 @@ spaces (the Python os.path libs don't seem to like this!)
 -->
 
 <!-- location of Aware j2kdriver application -->
+<!-- Linux:
+<j2kDriverApp>/usr/bin/j2kdriver</j2kDriverApp>
+-->
 <j2kDriverApp>C:\Program Files (x86)\Aware\JPEG2000_SDK\demo\j2kdriver.exe</j2kDriverApp>
 
 <!-- location of ExifTool application -->
+
+<!-- Linux:
+<exifToolApp>/usr/bin/exiftool</exifToolApp>
+-->
 <exifToolApp>C:\tools\exiftool.exe</exifToolApp>
 
 </config>
