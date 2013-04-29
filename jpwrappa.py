@@ -32,7 +32,7 @@ import etpatch as ET
 import shared
 scriptPath, scriptName = os.path.split(sys.argv[0])
 
-__version__= "0.1.5"
+__version__= "0.1.6"
 
 def main_is_frozen():
     return (hasattr(sys, "frozen") or # new py2exe
