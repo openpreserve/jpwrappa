@@ -6,6 +6,7 @@ jpwrappa\config.xml
 jpwrappa\etpatch.py
 jpwrappa\jpwrappa.py
 jpwrappa\shared.py
+jpwrappa\doc\jpWrappaUserManual.html
 jpwrappa\profiles\default.xml
 jpwrappa\profiles\demoAccessLossy.xml
 jpwrappa\profiles\demoLosslessHarvard.xml
