@@ -175,7 +175,7 @@ def launchSubProcess(systemString):
     try:
         # Execute command line; stdout + stderr redirected to objects
         # 'output' and 'errors'.
-        p = sub.Popen(systemString,stdout=sub.PIPE,stderr=sub.PIPE)
+        p = sub.Popen(systemString,stdout=sub.PIPE,stderr=sub.PIPE, shell=True)
         output, errors = p.communicate()
                 
         # Decode to UTF8

@@ -21,7 +21,7 @@ spaces (the Python os.path libs don't seem to like this!)
 <!-- Linux:
 <exifToolApp>/usr/bin/exiftool</exifToolApp>
 -->
-<exifToolApp>C:\tools\exiftool.exe</exifToolApp>
+<exifToolApp>C:\exiftool\exiftool.exe</exifToolApp>
 
 </config>
 
