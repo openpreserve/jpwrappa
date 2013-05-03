@@ -1,3 +1,3 @@
 include jpwrappa/config.xml
 recursive-include jpwrappa/profiles *
-recursive-include jpwrappa/doc *.html
+recursive-include doc *.html
