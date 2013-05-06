@@ -1,6 +1,7 @@
 build:
 	#pymakespec --onefile ./jpwrappa/jpwrappa.py
-    #pyinstaller jpwrappa.spec
+	#pyinstaller jpwrappa.spec
+	# PyInstaller 2 (no default path to pyinstaller.py so this will be system-specific!):
 	python /home/johan/pyinstall/pyinstaller.py --onefile ./jpwrappa/jpwrappa.py
 	@echo "Built in dist/jpwrappa" 	
 
