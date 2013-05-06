@@ -46,11 +46,21 @@ def get_main_dir():
        
 def getConfiguration():
 
+    # What platform are we on?
+    platform = os.name
+
     # From where is this script executed?)
     applicationPath=os.path.abspath(get_main_dir())
-
+    
+    # If we're working under Linux and using a frozen (Debian-packaged) version,
+    # root path of config file and default profiles dir is under /etc
+    if platform == "posix" and main_is_frozen():
+        rootPath = "/etc/jpwrappa"
+    else:
+        rootPath = applicationPath
+        
     # Configuration file
-    configFile=shared.addPath(applicationPath,"config.xml")
+    configFile=shared.addPath(rootPath,"config.xml")
 
     # Check if config file exists and exit if not
     shared.checkFileExists(configFile)
@@ -75,7 +85,7 @@ def getConfiguration():
     exifToolApp=config.findElementText("./config/exifToolApp")
         
     # Default JP2 profile    
-    jp2ProfileDefault=os.path.normpath(applicationPath + "/profiles/default.xml")
+    jp2ProfileDefault=os.path.normpath(rootPath + "/profiles/default.xml")
     
     # Normalise all paths
     j2kDriverApp=os.path.normpath(j2kDriverApp)
