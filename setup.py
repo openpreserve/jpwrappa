@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name = 'jpwrappa',
-    version = '0.1.6',
+    version = '0.2.0',
     description = "wrapper tool for Aware's JPEG 2000 SDK",
     # long_description = open('README.md').read(),
     author = 'Johan van der Knijff',
