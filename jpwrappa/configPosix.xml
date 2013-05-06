@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!-- jpwrappa configuration file. 
+-->
+
+<config>
+
+<!-- Do not wrap these file paths in quotes, even if they contain
+spaces (the Python os.path libs don't seem to like this!)
+
+-->
+
+<!-- location of Aware j2kdriver application -->
+
+<j2kDriverApp>/usr/bin/j2kdriver</j2kDriverApp>
+
+<!-- location of ExifTool application -->
+
+<exifToolApp>/usr/bin/exiftool</exifToolApp>
+
+</config>
+
+

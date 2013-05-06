@@ -1,2 +1,2 @@
-jpwrappa/config.xml  etc/jpwrappa
+jpwrappa/configPosix.xml  etc/jpwrappa/config.xml
 jpwrappa/profiles/* etc/jpwrappa/profiles/
