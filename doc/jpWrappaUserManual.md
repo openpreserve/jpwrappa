@@ -56,7 +56,7 @@ To be written.
 ### Debian package (Linux)
 Simply download the package and open in with your package installer (double-clicking usually does the trick). Alternatively you may wish to use the command terminal, in which case you can use *apt-get*, e.g.:
 
-    sudo apt-get install jpwrappa_0.1.7_amd64.deb
+    sudo apt-get install jpwrappa_0.2.0_amd64.deb
 
 *Jpwrappa* wraps around the *Aware* *j2kdriver* tool and (optionally) *ExifTool* as well. The locations of these tools are defined in a configuration file (*config.xml*), which is located in the directory */etc/jpwrappa*. It looks like this:
 
@@ -80,7 +80,7 @@ The default values of *j2kDriverApp* and *exifToolApp* will probably be fine for
 
 
 ### Windows executable
-Download the zip file (e.g. *jpwrapppa_0.1.7_win32.zip*) and extract it to any directory you like. *Jpwrappa* wraps around the *Aware* *j2kdriver* tool and (optionally) *ExifTool* as well. The locations of these tools are defined in a configuration file (*config.xml*), which is located in the *jpwrappa* installation directory. It looks like this:
+Download the zip file (e.g. *jpwrapppa_0.2.0_win32.zip*) and extract it to any directory you like. *Jpwrappa* wraps around the *Aware* *j2kdriver* tool and (optionally) *ExifTool* as well. The locations of these tools are defined in a configuration file (*config.xml*), which is located in the *jpwrappa* installation directory. It looks like this:
     
     <?xml version="1.0"?>
     <!-- jpwrappa configuration file. This file MUST be in the same directory as jpwrappa.py/ jpwrappa.exe!
