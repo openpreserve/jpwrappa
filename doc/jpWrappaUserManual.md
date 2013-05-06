@@ -48,6 +48,8 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 ## Installation and configuration
 
+Before you start installing *jpwrappa*, make sure you have a licensed copy of Aware's JPEG 2000 SDK installed on your system. Optionally, you may also want to install [*Exiftool*][exiftool], which is available for free. 
+
 ### Installation as a Python script (any platform)
 To be written.
 
@@ -197,6 +199,10 @@ So the file's root element is *options*, which has a child element *aware* which
 **Jpwrappa**| `<set-output-j2k-xform>I97 5</set-output-j2k-xform>` 
 
 Note that the order in which *Aware*'s options are given on the command line influences the results. *Jpwrappa* always uses the exact order that is used in the profile. Note that you can use XML comments to annotate your profiles and make them self-documented.
+
+
+###Example profiles
+The *jpwrappa* installation includes a collection of example profiles for lossless and lossy encoding. *Linux* users who are using the Debian package of *jpwrappa* can find these profiles in the */etc/jpwrappa/profiles* directory. *Windows* users should look for the *profiles* directory in the installation root.    
 
 ## Logging
 You can generate detailed logging information on each converted image using the *-l* switch. 
