@@ -48,8 +48,7 @@ Convert all images in current directory with extension *.tif* to *JP2*. Output n
 
 ## Documentation
 
-Will follow.
-   
+[ Jpwrappa User Manual](https://github.com/openplanets/jpwrappa/blob/master/doc/jpWrappaUserManual.md)
 
 [1]: http://www.aware.com/imaging/jpeg2000sdk.html
 [4]: http://www.scape-project.eu/
