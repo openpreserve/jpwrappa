@@ -183,20 +183,20 @@ The JP2 profile contains the encoding settings. The minimal example below shows 
 
 So the file's root element is *options*, which has a child element *aware* which contains the encoding options. The naming of these options is based on the naming used in Chapter 9 (‘Command Line Tools’) of the *Aware* manual, using the following naming convention:
 
-:--|:--
-**Aware option**|  `--aware-option value`   
-**Jpwrappa equivalent**| `<aware-option>value</aware-option>` 
+|:--|:--
+|**Aware option**|  `--aware-option value`   
+|**Jpwrappa equivalent**| `<aware-option>value</aware-option>` 
 
 ### Example 1: set progression order
-:--|:--
-**Aware**| `-- set-output-j2k-progression-order RPCL`  
-**Jpwrappa**| `<set-output-j2k-progression-order>RPCL</set-output-j2k-progression-order>`
+|:--|:--
+|**Aware**| `-- set-output-j2k-progression-order RPCL`  
+|**Jpwrappa**| `<set-output-j2k-progression-order>RPCL</set-output-j2k-progression-order>`
 
 
 ### Example 2: set transformation type and number of decomposition levels
-:--|:--
-**Aware**| `--set-output-j2k-xform I97 5`   
-**Jpwrappa**| `<set-output-j2k-xform>I97 5</set-output-j2k-xform>` 
+|:--|:--
+|**Aware**| `--set-output-j2k-xform I97 5`   
+|**Jpwrappa**| `<set-output-j2k-xform>I97 5</set-output-j2k-xform>` 
 
 Note that the order in which *Aware*'s options are given on the command line influences the results. *Jpwrappa* always uses the exact order that is used in the profile. Note that you can use XML comments to annotate your profiles and make them self-documented.
 

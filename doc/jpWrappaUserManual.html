@@ -310,7 +310,7 @@ output-file-name balloon.jp2
 <p>To be written.</p>
 <h3>Debian package (Linux)</h3>
 <p>Simply download the package and open in with your package installer (double-clicking usually does the trick). Alternatively you may wish to use the command terminal, in which case you can use <em>apt-get</em>, e.g.:</p>
-<pre><code>sudo apt-get install jpwrappa_0.1.7_amd64.deb
+<pre><code>sudo apt-get install jpwrappa_0.2.0_amd64.deb
 </code></pre>
 
 <p><em>Jpwrappa</em> wraps around the <em>Aware</em> <em>j2kdriver</em> tool and (optionally) <em>ExifTool</em> as well. The locations of these tools are defined in a configuration file (<em>config.xml</em>), which is located in the directory <em>/etc/jpwrappa</em>. It looks like this:</p>
@@ -333,7 +333,7 @@ output-file-name balloon.jp2
 
 <p>The default values of <em>j2kDriverApp</em> and <em>exifToolApp</em> will probably be fine for most situations, but if these binaries are located somewhere else on your system you can just update the configuration file accordingly. Make sure <em>not</em> to wrap these file paths in quotation marks, even if they contain spaces, as Python's os.path library doesn't appear to like this. Note that in order to make any changes to the configuration file you will need to open it as administrator!</p>
 <h3>Windows executable</h3>
-<p>Download the zip file (e.g. <em>jpwrapppa_0.1.7_win32.zip</em>) and extract it to any directory you like. <em>Jpwrappa</em> wraps around the <em>Aware</em> <em>j2kdriver</em> tool and (optionally) <em>ExifTool</em> as well. The locations of these tools are defined in a configuration file (<em>config.xml</em>), which is located in the <em>jpwrappa</em> installation directory. It looks like this:</p>
+<p>Download the zip file (e.g. <em>jpwrapppa_0.2.0_win32.zip</em>) and extract it to any directory you like. <em>Jpwrappa</em> wraps around the <em>Aware</em> <em>j2kdriver</em> tool and (optionally) <em>ExifTool</em> as well. The locations of these tools are defined in a configuration file (<em>config.xml</em>), which is located in the <em>jpwrappa</em> installation directory. It looks like this:</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;
 &lt;!-- jpwrappa configuration file. This file MUST be in the same directory as jpwrappa.py/ jpwrappa.exe!
 --&gt;
