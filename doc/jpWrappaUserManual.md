@@ -198,7 +198,7 @@ So the file's root element is *options*, which has a child element *aware* which
 Note that the order in which *Aware*'s options are given on the command line influences the results. *Jpwrappa* always uses the exact order that is used in the profile. Note that you can use XML comments to annotate your profiles and make them self-documented.
 
 ### Example profiles
-The jpwrappa installation includes a collection of example profiles for lossless and lossy encoding. Linux users who are using the Debian package of *jpwrappa* can find these profiles in the */etc/jpwrappa/profiles* directory. Windows users should look for the *profiles* directory in the installation root. See Annex 1 of this User Manual (below
+The jpwrappa installation includes a collection of example profiles for lossless and lossy encoding. Linux users who are using the Debian package of *jpwrappa* can find these profiles in the */etc/jpwrappa/profiles* directory. Windows users should look for the *profiles* directory in the installation root. See Annex 1 of this User Manual (below). Annex 2 lists the full XML of one example. 
 
 ## Logging
 You can generate detailed logging information on each converted image using the *-l* switch. 
@@ -343,3 +343,92 @@ This Annex documents example profiles that are supplied with *jpwrappa*. *Linux*
 
 ## optionsKBAccessLossy.xm
 **Synopsis**: same as *demoAccessLossy.xml* (see above), but with different codestream comment that refers to *KB*-specific specifications.
+
+# Annex 2: profile layout example
+
+The code below corresponds to the *demoMasterLossless.xml* example described in Annex 1 of this document.
+
+    <?xml version="1.0"?>
+    
+    <options>
+    <aware>
+    
+    <!--
+    ****
+    jpwrappa options file 
+    
+    Description: demo lossless JP2 encoding settings for preservation masters
+    Author: Johan van der Knijff
+    ****
+    -->
+    
+    
+    <set-output-j2k-add-comment>demoMasterLossless TEXT MAIN</set-output-j2k-add-comment>
+    <!--
+    	Inserts reference to this options profile as codestream comment
+    
+    -->
+    
+    
+    <set-output-type>JP2</set-output-type>
+    <!--
+    	Sets output format to JP2
+    -->
+    
+    
+    <set-output-j2k-xform>R53 5</set-output-j2k-xform>
+    <!--
+    	Sets compression type and number of decomposition levels
+    	- First argument: compression type:
+     		* R53: reversible 5-3 wavelet filter
+    		* I97: irreversible 9-7 filter 
+    	- Second argument: number of decomposition levels (dl)
+    		Note that this controls the number of resolution levels (rl): rl = dl + 1
+    
+    -->
+    
+    
+    <set-output-j2k-color-xform>YES</set-output-j2k-color-xform>
+    <!--
+    	Performs color rotation from RBG to YUV color spaces if input image 
+    	is in RGB format.
+    -->
+    
+    
+    <set-output-j2k-progression-order>RPCL</set-output-j2k-progression-order>
+    <!--
+    	Sets progression order
+    -->
+    
+    
+    <set-output-j2k-tile-size>1024 1024</set-output-j2k-tile-size>
+    <!--
+    	Sets tile size
+    -->
+    
+    
+    <set-output-j2k-codeblock-size>6 6</set-output-j2k-codeblock-size>
+    <!--
+    	Sets code block size: not actual block size but its base 2 logarithm!
+    	Value of 6 corresponds to code block size 64 (2^6)
+    
+    -->
+    
+    
+    <set-output-j2k-ratio>0</set-output-j2k-ratio>
+    <!--
+    	Sets compression ratio. A ratio of 0 indicates that all the quantized
+    	data should be included in the image. This creates lossless images 
+    	if the R53 wavelet is chosen using set-output-j2k-xform
+    -->
+    
+    
+    <set-output-j2k-error-resilience>ALL</set-output-j2k-error-resilience>
+    <!--
+    	Activates all error resilience features: start and end-of packet markers
+    	+ segmentation symbols
+    -->
+
+
+</aware>
+</options>
