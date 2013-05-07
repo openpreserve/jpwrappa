@@ -425,44 +425,20 @@ jpwrappa default profile: Set output format to JP2 and use Aware defaults for ev
 </code></pre>
 
 <p>So the file's root element is <em>options</em>, which has a child element <em>aware</em> which contains the encoding options. The naming of these options is based on the naming used in Chapter 9 (‘Command Line Tools’) of the <em>Aware</em> manual, using the following naming convention:</p>
-<table>
-<tbody>
-<tr>
-	<td align="left"><strong>Aware option</strong></td>
-	<td align="left"><code>--aware-option value</code></td>
-</tr>
-<tr>
-	<td align="left"><strong>Jpwrappa equivalent</strong></td>
-	<td align="left"><code>&lt;aware-option&gt;value&lt;/aware-option&gt;</code></td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li><strong>Aware option</strong>: <code>--aware-option value</code>   </li>
+<li><strong>Jpwrappa equivalent</strong>: <code>&lt;aware-option&gt;value&lt;/aware-option&gt;</code> </li>
+</ul>
 <h3>Example 1: set progression order</h3>
-<table>
-<tbody>
-<tr>
-	<td align="left"><strong>Aware</strong></td>
-	<td align="left"><code>-- set-output-j2k-progression-order RPCL</code></td>
-</tr>
-<tr>
-	<td align="left"><strong>Jpwrappa</strong></td>
-	<td align="left"><code>&lt;set-output-j2k-progression-order&gt;RPCL&lt;/set-output-j2k-progression-order&gt;</code></td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li><strong>Aware</strong>: <code>-- set-output-j2k-progression-order RPCL</code>  </li>
+<li><strong>Jpwrappa</strong>: <code>&lt;set-output-j2k-progression-order&gt;RPCL&lt;/set-output-j2k-progression-order&gt;</code></li>
+</ul>
 <h3>Example 2: set transformation type and number of decomposition levels</h3>
-<table>
-<tbody>
-<tr>
-	<td align="left"><strong>Aware</strong></td>
-	<td align="left"><code>--set-output-j2k-xform I97 5</code></td>
-</tr>
-<tr>
-	<td align="left"><strong>Jpwrappa</strong></td>
-	<td align="left"><code>&lt;set-output-j2k-xform&gt;I97 5&lt;/set-output-j2k-xform&gt;</code></td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li><strong>Aware</strong>: <code>--set-output-j2k-xform I97 5</code>   </li>
+<li><strong>Jpwrappa</strong>: <code>&lt;set-output-j2k-xform&gt;I97 5&lt;/set-output-j2k-xform&gt;</code> </li>
+</ul>
 <p>Note that the order in which <em>Aware</em>'s options are given on the command line influences the results. <em>Jpwrappa</em> always uses the exact order that is used in the profile. Note that you can use XML comments to annotate your profiles and make them self-documented.</p>
 <h3>Example profiles</h3>
 <p>The <em>jpwrappa</em> installation includes a collection of example profiles for lossless and lossy encoding. <em>Linux</em> users who are using the Debian package of <em>jpwrappa</em> can find these profiles in the <em>/etc/jpwrappa/profiles</em> directory. <em>Windows</em> users should look for the <em>profiles</em> directory in the installation root.    </p>
