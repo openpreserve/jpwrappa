@@ -197,9 +197,8 @@ So the file's root element is *options*, which has a child element *aware* which
 
 Note that the order in which *Aware*'s options are given on the command line influences the results. *Jpwrappa* always uses the exact order that is used in the profile. Note that you can use XML comments to annotate your profiles and make them self-documented.
 
-
-###Example profiles
-The *jpwrappa* installation includes a collection of example profiles for lossless and lossy encoding. *Linux* users who are using the Debian package of *jpwrappa* can find these profiles in the */etc/jpwrappa/profiles* directory. *Windows* users should look for the *profiles* directory in the installation root.    
+### Example profiles
+The jpwrappa installation includes a collection of example profiles for lossless and lossy encoding. Linux users who are using the Debian package of *jpwrappa* can find these profiles in the */etc/jpwrappa/profiles* directory. Windows users should look for the *profiles* directory in the installation root. See Annex 1 of this User Manual (below
 
 ## Logging
 You can generate detailed logging information on each converted image using the *-l* switch. 
@@ -259,3 +258,88 @@ Depending on the operating system that is used, there is a limit on the number o
 [exiftool]:http://owl.phy.queensu.ca/~phil/exiftool/
 [kb]:www.kb.nl
 [ms]:http://support.microsoft.com/kb/830473
+
+# Annex 1: Example profiles
+This Annex documents example profiles that are supplied with *jpwrappa*. *Linux* users who are using the Debian package of *jpwrappa* can find these profiles in the */etc/jpwrappa/profiles* directory. *Windows* users should look for the *profiles* directory in the installation root.    
+
+##default.xml
+**Synopsis**: minimalistic profile that produces JP2s according to the default settings of Aware's encoder (lossy compression). Note that this is also the default profile that is used by *jpwrappa* (i.e. if the user doesn't specify anything with the `-p` option).
+
+##demoMasterLossless.xml
+**Synopsis**: lossless compression with error resilience features.
+
+|Parameter|Value|
+|:---|:---|
+|File format|JP2 (JPEG 2000 Part 1)|
+|Compression type|Lossless (reversible 5-3 wavelet filter)|
+|Colour transform|Yes (only for colour images)|
+|Number of decomposition levels|5|
+|Progression order |RPCL|
+|Tile size |1024 x 1024|
+|Code block size| 64 x 64 (2<sup>6</sup> x 2<sup>6</sup>)|
+|Number of quality layers|	1|
+|Target compression ratio|	N/A|
+|Error resilience|	Start-of-packet headers; end-of-packet headers; segmentation symbols|
+|Codestream comment	|demoMasterLossless|
+
+##demoAccessLossy.xml
+**Synopsis**: lossy compression with 20:1 target compression ratio, 8 quality layers, precincts and error resilience features.
+
+|Parameter|Value|
+|:---|:---|
+|File format|JP2 (JPEG 2000 Part 1)|
+|Compression type|Lossy (irreversible 9-7 wavelet filter)|
+|Colour transform|Yes (only for colour images)|
+|Number of decomposition levels|5|
+|Progression order|RPCL|
+|Tile size|1024 x 1024|
+|Code block size| 64 x 64 (2<sup>6</sup> x 2<sup>6</sup>)|
+|Precinct size	|256 x 256 (2<sup>8</sup>) for 2 highest resolution levels; 128 x 128 (2<sup>7</sup>) for remaining resolution levels|
+|Number of quality layers|8|
+|Target compression ratio layer 1|2560:1|
+|Target compression ratio layer 2|	1280:1|
+|Target compression ratio layer 3|	640:1|
+|Target compression ratio layer 4|	320:1|
+|Target compression ratio layer 5|	160:1|
+|Target compression ratio layer 6|	80:1|
+|Target compression ratio layer 7|	40:1|
+|Target compression ratio layer 8|	20:1|
+|Error resilience|	Start-of-packet headers; end-of-packet headers; segmentation symbols|
+|Codestream comment|demoAccessLossy|
+
+## demoLossyJpylyzer.xml
+**Synopsis**: lossy compression with 50:1 target compression ratio, 6 quality layers, precincts and error resilience features (profile used for creation of *jpylyzer* test files).
+
+|Parameter|Value|
+|:---|:---|
+|File format|JP2 (JPEG 2000 Part 1)|
+|Compression type|Lossy (irreversible 9-7 wavelet filter)|
+|Colour transform|Yes (only for colour images)|
+|Number of decomposition levels|5|
+|Progression order|RPCL|
+|Tile size|1024 x 1024|
+|Code block size| 64 x 64 (2<sup>6</sup> x 2<sup>6</sup>)|
+|Precinct size	|256 x 256 (2<sup>8</sup>) for 2 highest resolution levels; 128 x 128 (2<sup>7</sup>) for remaining resolution levels|
+|Number of quality layers|6|
+|Target compression ratio layer 1|1600:1|
+|Target compression ratio layer 2|	800:1|
+|Target compression ratio layer 3|	400:1|
+|Target compression ratio layer 4|	200:1|
+|Target compression ratio layer 5|	100:1|
+|Target compression ratio layer 6|	50:1|
+|Error resilience|	Start-of-packet headers; end-of-packet headers; segmentation symbols|
+|Codestream comment|demoAccessLossy|
+
+
+
+##demoLosslessHarvard.xml
+**Synopsis**: lossless profile based on Harvard College Library 'recipe' by Bill Comstock, described in this [blog post](http://jpeg2000wellcomelibrary.blogspot.nl/2010/09/guest-post-jpeg2000-recipes-for-aware.html).
+
+##demoLossyHarvard.xml
+**Synopsis**: lossy profile based on Harvard College Library 'recipe' by Bill Comstock, described in this [blog post](http://jpeg2000wellcomelibrary.blogspot.nl/2010/09/guest-post-jpeg2000-recipes-for-aware.html). Defines target compression as Peak Signal-to-Noise Ratio (*PSNR*) of 46 dB.
+
+## optionsKBMasterLossless.xml
+**Synopsis**: same as *demoMasterLossless.xml* (see above), but with different codestream comment that refers to *KB*-specific specifications.
+
+## optionsKBAccessLossy.xm
+**Synopsis**: same as *demoAccessLossy.xml* (see above), but with different codestream comment that refers to *KB*-specific specifications.
