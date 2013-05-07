@@ -441,7 +441,7 @@ jpwrappa default profile: Set output format to JP2 and use Aware defaults for ev
 </ul>
 <p>Note that the order in which <em>Aware</em>'s options are given on the command line influences the results. <em>Jpwrappa</em> always uses the exact order that is used in the profile. Note that you can use XML comments to annotate your profiles and make them self-documented.</p>
 <h3>Example profiles</h3>
-<p>The <em>jpwrappa</em> installation includes a collection of example profiles for lossless and lossy encoding. <em>Linux</em> users who are using the Debian package of <em>jpwrappa</em> can find these profiles in the <em>/etc/jpwrappa/profiles</em> directory. <em>Windows</em> users should look for the <em>profiles</em> directory in the installation root.    </p>
+<p>The jpwrappa installation includes a collection of example profiles for lossless and lossy encoding. Linux users who are using the Debian package of <em>jpwrappa</em> can find these profiles in the <em>/etc/jpwrappa/profiles</em> directory. Windows users should look for the <em>profiles</em> directory in the installation root. See Annex 1 of this User Manual (below</p>
 <h2>Logging</h2>
 <p>You can generate detailed logging information on each converted image using the <em>-l</em> switch. </p>
 <p>Each log entry contains the following information: </p>
@@ -489,6 +489,242 @@ Warning: aw_j2k_get_output_image returned error code 203
 </ol>
 <h2>Environment limitations</h2>
 <p>Depending on the operating system that is used, there is a limit on the number of characters that can be used in a command line. This is important, as <em>jpwrappa</em> works by transforming the information in the options file to a valid <em>Aware</em> command line. For Windows XP and more recent, the maximum number of characters equals 8191; for older versions a limit of 2047 characters applies <a href="http://support.microsoft.com/kb/830473">[1]</a>.  On Linux/Unix systems, the actual value depends on the specific flavour, but in general it will exceed the Windows value by several orders of magnitude.  Just to give an indication: the example command line that is given in the introduction in this User Manual is made up of 1067 characters. So, these limitations are unlikely to cause any major problems, unless extremely long file paths are used for the in- and output files.</p>
+<h1>Annex 1: Example profiles</h1>
+<p>This Annex documents example profiles that are supplied with <em>jpwrappa</em>. <em>Linux</em> users who are using the Debian package of <em>jpwrappa</em> can find these profiles in the <em>/etc/jpwrappa/profiles</em> directory. <em>Windows</em> users should look for the <em>profiles</em> directory in the installation root.    </p>
+<h2>default.xml</h2>
+<p><strong>Synopsis</strong>: minimalistic profile that produces JP2s according to the default settings of Aware's encoder (lossy compression). Note that this is also the default profile that is used by <em>jpwrappa</em> (i.e. if the user doesn't specify anything with the <code>-p</code> option).</p>
+<h2>demoMasterLossless.xml</h2>
+<p><strong>Synopsis</strong>: lossless compression with error resilience features.</p>
+<table>
+<thead>
+<tr>
+	<th align="left">Parameter</th>
+	<th align="left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td align="left">File format</td>
+	<td align="left">JP2 (JPEG 2000 Part 1)</td>
+</tr>
+<tr>
+	<td align="left">Compression type</td>
+	<td align="left">Lossless (reversible 5-3 wavelet filter)</td>
+</tr>
+<tr>
+	<td align="left">Colour transform</td>
+	<td align="left">Yes (only for colour images)</td>
+</tr>
+<tr>
+	<td align="left">Number of decomposition levels</td>
+	<td align="left">5</td>
+</tr>
+<tr>
+	<td align="left">Progression order</td>
+	<td align="left">RPCL</td>
+</tr>
+<tr>
+	<td align="left">Tile size</td>
+	<td align="left">1024 x 1024</td>
+</tr>
+<tr>
+	<td align="left">Code block size</td>
+	<td align="left">64 x 64 (2<sup>6</sup> x 2<sup>6</sup>)</td>
+</tr>
+<tr>
+	<td align="left">Number of quality layers</td>
+	<td align="left">1</td>
+</tr>
+<tr>
+	<td align="left">Target compression ratio</td>
+	<td align="left">N/A</td>
+</tr>
+<tr>
+	<td align="left">Error resilience</td>
+	<td align="left">Start-of-packet headers; end-of-packet headers; segmentation symbols</td>
+</tr>
+<tr>
+	<td align="left">Codestream comment</td>
+	<td align="left">demoMasterLossless</td>
+</tr>
+</tbody>
+</table>
+<h2>demoAccessLossy.xml</h2>
+<p><strong>Synopsis</strong>: lossy compression with 20:1 target compression ratio, 8 quality layers, precincts and error resilience features.</p>
+<table>
+<thead>
+<tr>
+	<th align="left">Parameter</th>
+	<th align="left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td align="left">File format</td>
+	<td align="left">JP2 (JPEG 2000 Part 1)</td>
+</tr>
+<tr>
+	<td align="left">Compression type</td>
+	<td align="left">Lossy (irreversible 9-7 wavelet filter)</td>
+</tr>
+<tr>
+	<td align="left">Colour transform</td>
+	<td align="left">Yes (only for colour images)</td>
+</tr>
+<tr>
+	<td align="left">Number of decomposition levels</td>
+	<td align="left">5</td>
+</tr>
+<tr>
+	<td align="left">Progression order</td>
+	<td align="left">RPCL</td>
+</tr>
+<tr>
+	<td align="left">Tile size</td>
+	<td align="left">1024 x 1024</td>
+</tr>
+<tr>
+	<td align="left">Code block size</td>
+	<td align="left">64 x 64 (2<sup>6</sup> x 2<sup>6</sup>)</td>
+</tr>
+<tr>
+	<td align="left">Precinct size</td>
+	<td align="left">256 x 256 (2<sup>8</sup>) for 2 highest resolution levels; 128 x 128 (2<sup>7</sup>) for remaining resolution levels</td>
+</tr>
+<tr>
+	<td align="left">Number of quality layers</td>
+	<td align="left">8</td>
+</tr>
+<tr>
+	<td align="left">Target compression ratio layer 1</td>
+	<td align="left">2560:1</td>
+</tr>
+<tr>
+	<td align="left">Target compression ratio layer 2</td>
+	<td align="left">1280:1</td>
+</tr>
+<tr>
+	<td align="left">Target compression ratio layer 3</td>
+	<td align="left">640:1</td>
+</tr>
+<tr>
+	<td align="left">Target compression ratio layer 4</td>
+	<td align="left">320:1</td>
+</tr>
+<tr>
+	<td align="left">Target compression ratio layer 5</td>
+	<td align="left">160:1</td>
+</tr>
+<tr>
+	<td align="left">Target compression ratio layer 6</td>
+	<td align="left">80:1</td>
+</tr>
+<tr>
+	<td align="left">Target compression ratio layer 7</td>
+	<td align="left">40:1</td>
+</tr>
+<tr>
+	<td align="left">Target compression ratio layer 8</td>
+	<td align="left">20:1</td>
+</tr>
+<tr>
+	<td align="left">Error resilience</td>
+	<td align="left">Start-of-packet headers; end-of-packet headers; segmentation symbols</td>
+</tr>
+<tr>
+	<td align="left">Codestream comment</td>
+	<td align="left">demoAccessLossy</td>
+</tr>
+</tbody>
+</table>
+<h2>demoLossyJpylyzer.xml</h2>
+<p><strong>Synopsis</strong>: lossy compression with 50:1 target compression ratio, 6 quality layers, precincts and error resilience features (profile used for creation of <em>jpylyzer</em> test files).</p>
+<table>
+<thead>
+<tr>
+	<th align="left">Parameter</th>
+	<th align="left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td align="left">File format</td>
+	<td align="left">JP2 (JPEG 2000 Part 1)</td>
+</tr>
+<tr>
+	<td align="left">Compression type</td>
+	<td align="left">Lossy (irreversible 9-7 wavelet filter)</td>
+</tr>
+<tr>
+	<td align="left">Colour transform</td>
+	<td align="left">Yes (only for colour images)</td>
+</tr>
+<tr>
+	<td align="left">Number of decomposition levels</td>
+	<td align="left">5</td>
+</tr>
+<tr>
+	<td align="left">Progression order</td>
+	<td align="left">RPCL</td>
+</tr>
+<tr>
+	<td align="left">Tile size</td>
+	<td align="left">1024 x 1024</td>
+</tr>
+<tr>
+	<td align="left">Code block size</td>
+	<td align="left">64 x 64 (2<sup>6</sup> x 2<sup>6</sup>)</td>
+</tr>
+<tr>
+	<td align="left">Precinct size</td>
+	<td align="left">256 x 256 (2<sup>8</sup>) for 2 highest resolution levels; 128 x 128 (2<sup>7</sup>) for remaining resolution levels</td>
+</tr>
+<tr>
+	<td align="left">Number of quality layers</td>
+	<td align="left">6</td>
+</tr>
+<tr>
+	<td align="left">Target compression ratio layer 1</td>
+	<td align="left">1600:1</td>
+</tr>
+<tr>
+	<td align="left">Target compression ratio layer 2</td>
+	<td align="left">800:1</td>
+</tr>
+<tr>
+	<td align="left">Target compression ratio layer 3</td>
+	<td align="left">400:1</td>
+</tr>
+<tr>
+	<td align="left">Target compression ratio layer 4</td>
+	<td align="left">200:1</td>
+</tr>
+<tr>
+	<td align="left">Target compression ratio layer 5</td>
+	<td align="left">100:1</td>
+</tr>
+<tr>
+	<td align="left">Target compression ratio layer 6</td>
+	<td align="left">50:1</td>
+</tr>
+<tr>
+	<td align="left">Error resilience</td>
+	<td align="left">Start-of-packet headers; end-of-packet headers; segmentation symbols</td>
+</tr>
+<tr>
+	<td align="left">Codestream comment</td>
+	<td align="left">demoAccessLossy</td>
+</tr>
+</tbody>
+</table>
+<h2>demoLosslessHarvard.xml</h2>
+<p><strong>Synopsis</strong>: lossless profile based on Harvard College Library 'recipe' by Bill Comstock, described in this <a href="http://jpeg2000wellcomelibrary.blogspot.nl/2010/09/guest-post-jpeg2000-recipes-for-aware.html">blog post</a>.</p>
+<h2>demoLossyHarvard.xml</h2>
+<p><strong>Synopsis</strong>: lossy profile based on Harvard College Library 'recipe' by Bill Comstock, described in this <a href="http://jpeg2000wellcomelibrary.blogspot.nl/2010/09/guest-post-jpeg2000-recipes-for-aware.html">blog post</a>. Defines target compression as Peak Signal-to-Noise Ratio (<em>PSNR</em>) of 46 dB.</p>
+<h2>optionsKBMasterLossless.xml</h2>
+<p><strong>Synopsis</strong>: same as <em>demoMasterLossless.xml</em> (see above), but with different codestream comment that refers to <em>KB</em>-specific specifications.</p>
+<h2>optionsKBAccessLossy.xm</h2>
+<p><strong>Synopsis</strong>: same as <em>demoAccessLossy.xml</em> (see above), but with different codestream comment that refers to <em>KB</em>-specific specifications.</p>
 
 </body>
 </html>
