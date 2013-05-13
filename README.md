@@ -5,6 +5,11 @@ _Jpwrappa_ is a simple Python wrapper around the command-line tool of [Aware's J
 
 Note that this wrapper is in its early stages, and any operational use is strongly discouraged at this stage. All *JP2* profiles that are included with this software are provided for illustrative/demonstration purposes only!
 
+## Downloads
+
+* [ Jpwrappa User Manual](https://github.com/openplanets/jpwrappa/blob/master/doc/jpWrappaUserManual.md)
+* [Windows binaries](https://bintray.com/pkg/show/general/openplanets/binaries/jpwrappa) - stand-alone Windows binaries that allow you to run *jpwrappa* without any *Python* dependencies 
+
 ## Command line use
 
 #### Usage
@@ -46,9 +51,7 @@ Same as above, but generate XML-formatted log that is directed to file *log.xml*
 
 Convert all images in current directory with extension *.tif* to *JP2*. Output names are automatically generated from the *TIFF* base names; can be optionally tweaked using `-s` option.
 
-## Documentation
 
-[ Jpwrappa User Manual](https://github.com/openplanets/jpwrappa/blob/master/doc/jpWrappaUserManual.md)
 
 [1]: http://www.aware.com/imaging/jpeg2000sdk.html
 [4]: http://www.scape-project.eu/
