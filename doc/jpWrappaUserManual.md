@@ -1,6 +1,6 @@
 #Jpwrappa
 
-User Manual 6 May 2013.
+User Manual 25 November 2013.
 
 **Author**: Johan van der Knijff, KB / National Library of the Netherlands; contact: [johan.vanderknijff@kb.nl](mailto:johan.vanderknijff@kb.nl)
 
@@ -238,6 +238,12 @@ As an example, below is a log entry for an image that could not be converted (in
 
 <!-- ![](https://raw.github.com/openplanets/jpwrappa/master/doc/logError.png) -->
 
+###Note
+If *imageIn* refers to an image / a set of images that doesn't exist, *jpwrappa* will exit with an error message. For example:
+
+    Error: E:\TIFFSamples\dpp_colour_00990.tiff does not exist!
+
+If the *-l* switch was used *no error log* is reported in this special case! This behaviour may change in future versions.  
 
 ## Error handling
 Especially in case of the batch processing on multiple images it is important that one or two ‘bad’ input images  do not cause a crash of the whole batch process. Perhaps even more importantly, any errors should be traceable. One problem is that the exit status of the *Aware* j2kdriver application is not a reliable indicator for establishing whether an image was converted successfully. *Jpwrappa* tries to handle any problems with *ExifTool* and/or the j2kdriver application in the following way:
