@@ -32,7 +32,7 @@ import etpatch as ET
 import shared
 scriptPath, scriptName = os.path.split(sys.argv[0])
 
-__version__= "0.2.2"
+__version__= "0.2.3"
 
 def main_is_frozen():
     return (hasattr(sys, "frozen") or # new py2exe
@@ -399,17 +399,13 @@ def main():
     flagMetadata=args.flagMetadata
     flagLogging=args.flagLogging
     
-    if os.path.isdir(imageIn) and not os.path.isdir(imageOut):
-        msg=imageIn + " is a directory but " + imageOut + " is not a directory!"
-        shared.errorExit(msg)
-
     # Input image(s) as file list
     imagesIn=glob.glob(imageIn)
 
     if not imagesIn:
-        # If imageIn refers to a non-existing file or directory, imagesIn is empty
+        # If imageIn refers to non-existing files, imagesIn is empty
         # jpwrappa will exit with an error if this happens
-        msg=imageIn + " is not a file or directory!"
+        msg=imageIn + " does not exist!"
         shared.errorExit(msg)
                
     # Normalise output images(s) path (may be a directory!) 
