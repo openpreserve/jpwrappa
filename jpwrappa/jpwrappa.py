@@ -409,7 +409,7 @@ def main():
     
     if flagLogging==True:
         # Write xml-formatted log to stdout
-        sys.stdout.write(log.toxml().decode('ascii'))
+        print(log.toxml().decode('ascii'))
     
     
 if __name__ == "__main__":
