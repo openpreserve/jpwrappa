@@ -32,7 +32,7 @@ import etpatch as ET
 import shared
 scriptPath, scriptName = os.path.split(sys.argv[0])
 
-__version__= "0.2.1"
+__version__= "0.2.2"
 
 def main_is_frozen():
     return (hasattr(sys, "frozen") or # new py2exe
@@ -221,14 +221,19 @@ def convertOneImageToJP2(imageIn,imageOut,awareOptionsString,exifToolApp,j2kDriv
     exifStdErr=""
     awareStdOut=""
     awareStdErr=""
+
+    # Does input image exist?
+    imageInExists=os.path.isfile(imageIn)
        
+    #if imageInExists==False:
+   
     # If output image already exists, delete it! Why this? -->
     # 1. If the conversion proceeds as planned, it will be overwritten anyway, BUT ...
     # 2. If something goes wrong and the image cannot be created, the absence of 
     #    the output image may be the only way to find out about this afterwards
     #    (because we cannot rely on Aware's exit status for this, see below)
     shared.removeFile(imageOut)
-
+   
     # Absolute path to output image (location also used for temporary file)
     pathOut=os.path.abspath(os.path.split(imageOut)[0])
 
@@ -303,7 +308,7 @@ def convertOneImageToJP2(imageIn,imageOut,awareOptionsString,exifToolApp,j2kDriv
     conversionInfo.appendChildTagWithText("awareExitStatus", awareExitStatus)
     conversionInfo.appendChildTagWithText("awareStdOut", awareStdOut)
     conversionInfo.appendChildTagWithText("awareStdErr", awareStdErr)
-    
+        
     # Return conversion info
     return(conversionInfo)
     
@@ -364,11 +369,11 @@ def imagesToJP2(imagesIn,fileOut,jp2Profile,suffixOut,flagMetadata):
         for i in range(numberOfImages):
             imageIn=imagesIn[i]
             imageOut=shared.constructFileName(imageIn,fileOut,"jp2", suffixOut)
-            imagesOut.append(imageOut)
+            imagesOut.append(imageOut)     
     
     # Convert all images
     for i in range(numberOfImages):
-        
+            
         imageIn=imagesIn[i]
         imageOut=imagesOut[i]
         
@@ -380,8 +385,8 @@ def imagesToJP2(imagesIn,fileOut,jp2Profile,suffixOut,flagMetadata):
         conversionInfo.appendChildTagWithText("profile", jp2Profile)
         
         # Add as child to log element
-        log.append(conversionInfo)
-                        
+        log.append(conversionInfo)      
+        
     return(imagesOut,log)
 
 def main():
@@ -393,10 +398,20 @@ def main():
     suffixOut=args.suffix
     flagMetadata=args.flagMetadata
     flagLogging=args.flagLogging
+    
+    if os.path.isdir(imageIn) and not os.path.isdir(imageOut):
+        msg=imageIn + " is a directory but " + imageOut + " is not a directory!"
+        shared.errorExit(msg)
 
     # Input image(s) as file list
     imagesIn=glob.glob(imageIn)
-        
+
+    if not imagesIn:
+        # If imageIn refers to a non-existing file or directory, imagesIn is empty
+        # jpwrappa will exit with an error if this happens
+        msg=imageIn + " is not a file or directory!"
+        shared.errorExit(msg)
+               
     # Normalise output images(s) path (may be a directory!) 
     imageOut=os.path.normpath(args.imageOut)
     
@@ -406,7 +421,7 @@ def main():
        
     # Perform conversion
     imagesOut,log=imagesToJP2(imagesIn,imageOut,jp2Profile,suffixOut,flagMetadata)
-    
+        
     if flagLogging==True:
         # Write xml-formatted log to stdout
         print(log.toxml().decode('ascii'))
