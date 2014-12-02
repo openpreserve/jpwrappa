@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+
+<options>
+<aware>
+
+<!--
+****
+jpwrappa options file 
+
+Description: lossy JP2 encoding settings for KB access files
+Author: Johan van der Knijff
+Date: 30 March, 2011
+Changes wrt version 21 January 2011: 
+- Changed target compression ratio from 10:1 to 20:1
+- Reduced number of quality layers from 10 to 8
+Date: 2 December 2014
+Changes wrt version 30 March 2011: 
+- Updated codestream comment to 2014 specs (which really are identical to 2011 specs otherwise)
+****
+-->
+
+
+<set-output-j2k-add-comment>KB_ACCESS_LOSSY_01/07/2014 TEXT MAIN</set-output-j2k-add-comment>
+<!--
+	Inserts reference to this options profile as codestream comment
+	Please update this value for each new version of the profile!
+
+-->
+
+
+<set-output-type>JP2</set-output-type>
+<!--
+	Sets output format to JP2
+
+-->
+
+
+<set-output-j2k-xform>I97 5</set-output-j2k-xform>
+<!--
+	Sets compression type and number of decomposition levels
+	- First argument: compression type:
+ 		* R53: reversible 5-3 wavelet filter
+		* I97: irreversible 9-7 filter 
+	- Second argument: number of decomposition levels (dl)
+		Note that this controls the number of resolution levels (rl): rl = dl + 1
+
+-->
+
+
+<set-output-j2k-color-xform>YES</set-output-j2k-color-xform>
+<!--
+	Performs color rotation from RBG to YUV color spaces if input image 
+	is in RGB format.
+
+-->
+
+
+<set-output-j2k-progression-order>RPCL</set-output-j2k-progression-order>
+<!--
+	Sets progression order
+
+-->
+
+
+<set-output-j2k-tile-size>1024 1024</set-output-j2k-tile-size>
+<!--
+
+	Sets tile size
+
+-->
+
+
+<set-output-j2k-codeblock-size>6 6</set-output-j2k-codeblock-size>
+<!--
+	Sets code block size: not actual block size but its base 2 logarithm!
+	Value of 6 corresponds to code block size 64 (2^6) 
+
+-->
+
+
+<set-output-j2k-channel-precinct-size>ALL 0 7 7</set-output-j2k-channel-precinct-size>
+<set-output-j2k-channel-precinct-size>ALL 1 7 7</set-output-j2k-channel-precinct-size>
+<set-output-j2k-channel-precinct-size>ALL 2 7 7</set-output-j2k-channel-precinct-size>
+<set-output-j2k-channel-precinct-size>ALL 3 7 7</set-output-j2k-channel-precinct-size>
+<set-output-j2k-channel-precinct-size>ALL 4 8 8</set-output-j2k-channel-precinct-size>
+<set-output-j2k-channel-precinct-size>ALL 5 8 8</set-output-j2k-channel-precinct-size>
+
+<!--
+	Sets precinct size to 256 by 256 (2^8) for first two highest resolution levels,
+	and to 128 by 128 (2^7) for all lower levels (again expressed as base 2 logarithms)
+	Note that the number of resolution levels (rl) depends on the number of decomposition
+	levels (dl) through rl = dl + 1
+
+
+-->
+
+
+<set-output-j2k-layers>8</set-output-j2k-layers>
+<!--
+	Sets the number of quality layers.
+
+
+-->
+
+<set-output-j2k-layer-ratio>0 2560</set-output-j2k-layer-ratio>
+<set-output-j2k-layer-ratio>1 1280</set-output-j2k-layer-ratio>
+<set-output-j2k-layer-ratio>2 640</set-output-j2k-layer-ratio>
+<set-output-j2k-layer-ratio>3 320</set-output-j2k-layer-ratio>
+<set-output-j2k-layer-ratio>4 160</set-output-j2k-layer-ratio>
+<set-output-j2k-layer-ratio>5 80</set-output-j2k-layer-ratio>
+<set-output-j2k-layer-ratio>6 40</set-output-j2k-layer-ratio>
+<set-output-j2k-layer-ratio>7 20</set-output-j2k-layer-ratio>
+<!--
+	Sets the target compression ratio for each quality layer.
+	Layer 7: best quality (target ratio 20:1)
+	Layer 0: poorest quality (target ratio 2560:1)
+	Following recommendation by Buckley & Tanner (2009) and additional research
+	by the British Library, target compression ratios are defined
+	in such a way that they follow a logarithmic distribution, i.e. compression
+	ratio of second-best layer equals twice the value of the best layer, and so on.
+
+-->
+
+
+<set-output-j2k-error-resilience>ALL</set-output-j2k-error-resilience>
+<!--
+	Activates all error resilience features: start and end-of packet markers
+	+ segmentation symbols
+
+-->
+
+</aware>
+</options>
