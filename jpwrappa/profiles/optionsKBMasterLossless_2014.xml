@@ -13,7 +13,7 @@ Description: lossless JP2 encoding settings, 11 quality  layers, precincts
 -->
 
 
-<set-output-j2k-add-comment>KB_MASTER_LOSSLESS_01/07/2014 TEXT MAIN TEXT MAIN</set-output-j2k-add-comment>
+<set-output-j2k-add-comment>KB_MASTER_LOSSLESS_01/07/2014 TEXT MAIN/set-output-j2k-add-comment>
 <!--
 	Inserts reference to this options profile as codestream comment
 	Please update this value for each new version of the profile!
