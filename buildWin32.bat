@@ -18,7 +18,7 @@ setlocal
 ::::::::: CONFIGURATION :::::::::: 
 
 :: Python
-set python=c:\python27\python
+set python=c:\python27_32bit\python
 
 :: Path to PyInstaller
 set pathPyInstaller=c:\pyinstall\
