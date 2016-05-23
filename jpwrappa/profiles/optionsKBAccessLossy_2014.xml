@@ -20,7 +20,7 @@ Changes wrt version 30 March 2011:
 -->
 
 
-<set-output-j2k-add-comment>KB_ACCESS_LOSSY_01/07/2014 TEXT MAIN</set-output-j2k-add-comment>
+<set-output-j2k-add-comment>KB_ACCESS_LOSSY_01/01/2015 TEXT MAIN</set-output-j2k-add-comment>
 <!--
 	Inserts reference to this options profile as codestream comment
 	Please update this value for each new version of the profile!
