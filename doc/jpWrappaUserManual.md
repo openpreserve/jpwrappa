@@ -238,7 +238,7 @@ As an example, below is a log entry for an image that could not be converted (in
 
 <!-- ![](https://raw.github.com/openplanets/jpwrappa/master/doc/logError.png) -->
 
-###Note
+### Note
 If *imageIn* refers to an image / a set of images that doesn't exist, *jpwrappa* will exit with an error message. For example:
 
     Error: E:\TIFFSamples\dpp_colour_00990.tiff does not exist!
@@ -268,10 +268,10 @@ Depending on the operating system that is used, there is a limit on the number o
 # Annex 1: Example profiles
 This Annex documents example profiles that are supplied with *jpwrappa*. *Linux* users who are using the Debian package of *jpwrappa* can find these profiles in the */etc/jpwrappa/profiles* directory. *Windows* users should look for the *profiles* directory in the installation root.    
 
-##default.xml
+## default.xml
 **Synopsis**: minimalistic profile that produces JP2s according to the default settings of Aware's encoder (lossy compression). Note that this is also the default profile that is used by *jpwrappa* (i.e. if the user doesn't specify anything with the `-p` option).
 
-##demoMasterLossless.xml
+## demoMasterLossless.xml
 **Synopsis**: lossless compression with error resilience features.
 
 |Parameter|Value|
@@ -288,7 +288,7 @@ This Annex documents example profiles that are supplied with *jpwrappa*. *Linux*
 |Error resilience|	Start-of-packet headers; end-of-packet headers; segmentation symbols|
 |Codestream comment	|demoMasterLossless|
 
-##demoAccessLossy.xml
+## demoAccessLossy.xml
 **Synopsis**: lossy compression with 20:1 target compression ratio, 8 quality layers, precincts and error resilience features.
 
 |Parameter|Value|
@@ -338,10 +338,10 @@ This Annex documents example profiles that are supplied with *jpwrappa*. *Linux*
 
 
 
-##demoLosslessHarvard.xml
+## demoLosslessHarvard.xml
 **Synopsis**: lossless profile based on Harvard College Library 'recipe' by Bill Comstock, described in this [blog post](http://jpeg2000wellcomelibrary.blogspot.nl/2010/09/guest-post-jpeg2000-recipes-for-aware.html).
 
-##demoLossyHarvard.xml
+## demoLossyHarvard.xml
 **Synopsis**: lossy profile based on Harvard College Library 'recipe' by Bill Comstock, described in this [blog post](http://jpeg2000wellcomelibrary.blogspot.nl/2010/09/guest-post-jpeg2000-recipes-for-aware.html). Defines target compression as Peak Signal-to-Noise Ratio (*PSNR*) of 46 dB.
 
 ## optionsKBMasterLossless.xml
