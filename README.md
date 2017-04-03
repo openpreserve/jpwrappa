@@ -1,4 +1,4 @@
-#jpwrappa
+# jpwrappa
 
 ## About
 _Jpwrappa_ is a simple Python wrapper around the command-line tool of [Aware's JPEG 2000 SDK][1]. It is useful *only* if you have a copy of this software.  *Jpwrappa*'s development was partially supported by the [SCAPE][4] Project. The SCAPE project is co-funded by the European Union under FP7 ICT-2009.4.1 (Grant Agreement number 270137).
